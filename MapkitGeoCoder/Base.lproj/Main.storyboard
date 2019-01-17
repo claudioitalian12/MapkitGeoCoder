@@ -1,24 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MapViewController" customModule="MapkitGeoCoder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="NE1-Ez-O8U">
+                                <rect key="frame" x="0.0" y="35" width="375" height="211"/>
+                            </mapView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LTk-tv-Aj5">
+                                <rect key="frame" x="16" y="267" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="cCr-Ms-pK8"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3oK-6g-3Iv">
+                                <rect key="frame" x="151.5" y="319" width="72" height="29"/>
+                                <state key="normal" title="GetDatails"/>
+                                <connections>
+                                    <action selector="getDetails:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B8Z-In-Tvz"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="NE1-Ez-O8U" firstAttribute="centerX" secondItem="LTk-tv-Aj5" secondAttribute="centerX" id="1o1-wO-Dwu"/>
+                            <constraint firstAttribute="trailing" secondItem="NE1-Ez-O8U" secondAttribute="trailing" id="HJC-Xy-lMP"/>
+                            <constraint firstItem="LTk-tv-Aj5" firstAttribute="top" secondItem="NE1-Ez-O8U" secondAttribute="bottom" constant="21" id="JTY-tZ-1i7"/>
+                            <constraint firstItem="LTk-tv-Aj5" firstAttribute="centerX" secondItem="3oK-6g-3Iv" secondAttribute="centerX" id="QHB-o2-H2a"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3oK-6g-3Iv" secondAttribute="bottom" constant="319" id="RMP-9Z-kva"/>
+                            <constraint firstItem="NE1-Ez-O8U" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="YnK-mL-rYz"/>
+                            <constraint firstItem="LTk-tv-Aj5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="aKy-1C-dsO"/>
+                            <constraint firstItem="3oK-6g-3Iv" firstAttribute="top" secondItem="LTk-tv-Aj5" secondAttribute="bottom" constant="22" id="fVi-BL-yPR"/>
+                            <constraint firstItem="NE1-Ez-O8U" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="njF-ai-ebs"/>
+                            <constraint firstItem="3oK-6g-3Iv" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="tW5-tJ-HPo"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="addressBar" destination="LTk-tv-Aj5" id="Pba-Fp-j2R"/>
+                        <outlet property="mapView" destination="NE1-Ez-O8U" id="Gt5-Ss-8NQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
     </scenes>
 </document>
